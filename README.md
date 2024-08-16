@@ -16,6 +16,8 @@
 -Diagnostic(give beautiful error view)
 -Error Handling
 -HTTPs
+-Tree Shaking (remoe unused code)
+- Different dev and production bundles(build)
 
 
 

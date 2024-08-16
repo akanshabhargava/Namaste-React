@@ -4,6 +4,8 @@
   "description": "This is namaste react by akshay saini",
 
   "scripts": {
+    "start":"npx parcel index.html",
+    "build":"npx parcel build index.html ",
     "test": "jest"
   },
   "repository": {
