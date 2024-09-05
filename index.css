@@ -12,10 +12,13 @@
     
     list-style-type: none;
     font-size: 24px;
+ 
+margin-right:12px;
 }
 .nav-items>ul>li {
     padding:10px;
     margin:10px;
+
 }
 .res-card{
     width:200px;
@@ -32,11 +35,15 @@
 }
 .res-logo{
     width:100%;
-height:50%
+    height:33%;
+
 }
-.res-card h3  {
-margin:5px ;
-}
+/* .res-card h3  {
+margin:4px ;
+} */
+ .res-card h4{
+    word-wrap: break-word;
+ }
 .res-container{
     display:flex;
     flex-wrap: wrap;
@@ -44,4 +51,25 @@ margin:5px ;
 .filter-btn{
     margin:10px;
     cursor: pointer;
+}
+
+.shimmer-card {
+    width:200px;
+    height:400px;
+    margin:20px;
+    background-color: #f0f0f0;
+    
+}
+
+.shimmer-container {
+display: flex;
+flex-wrap: wrap;
+}
+.login{
+    padding:0px 20px;
+    cursor:pointer;
+   
+}
+.filter{
+    display: flex;
 }
