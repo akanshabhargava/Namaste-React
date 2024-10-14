@@ -73,3 +73,8 @@ flex-wrap: wrap;
 .filter{
     display: flex;
 }
+
+.user-card {
+    padding:10px;
+    border:1px solid black
+}
