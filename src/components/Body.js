@@ -31,8 +31,8 @@ const Body = () => {
     );
   };
 
-  const onlinestatus = useOnlineStatus();
-  if (onlinestatus === false) {
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) {
     return (
       <h1>
         Looks like you are offline !! Please check your internet connection
@@ -47,15 +47,16 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex items-center">
+        <div className="p-4 m-4">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
           <button
+            className="px-4 py-2 m-4 bg-green-100 rounded-lg"
             onClick={() => {
               setFilteredRestraurants(
                 listOfRestraurants.filter((res) =>
@@ -67,18 +68,20 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            setListOfRestraurants((prevList) => {
-              return prevList.filter((list) => list.info.avgRating > 4.2);
-            });
-          }}
-        >
-          Top Rated Restraurants
-        </button>
+        <div className="p-4 m-4">
+          <button
+            className="px-4 py-2 m-4 bg-gray-100 rounded-lg"
+            onClick={() => {
+              setListOfRestraurants((prevList) => {
+                return prevList.filter((list) => list.info.avgRating > 4.2);
+              });
+            }}
+          >
+            Top Rated Restraurants
+          </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {/* <RestraurantCard
             resName="Pizza Doords"
             cuisine="Biryani,Chinese,Italian"

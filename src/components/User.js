@@ -10,7 +10,7 @@ const User = ({ name }) => {
     };
   }, [count]);
   return (
-    <div className="user-card">
+    <div className="m-4 p-4 rounded-lg bg-gray-50">
       <button
         onClick={() => {
           setCount(1);
