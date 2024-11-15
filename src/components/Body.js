@@ -1,13 +1,18 @@
 import resList from "../utils/mockdata";
-import RestraurantCard from "./RestraurantCard";
-import { useEffect, useState } from "react";
+import RestraurantCard, { withPromotedLabel } from "./RestraurantCard";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 const Body = () => {
   const [listOfRestraurants, setListOfRestraurants] = useState([]);
   const [filteredRestraurants, setFilteredRestraurants] = useState([]);
   const [searchText, setSearchText] = useState("");
+  console.log("List of Restraurants", listOfRestraurants);
+  const { loggedInUser, setUserName } = useContext(UserContext);
+  /*** high order component  */
+  const PromotedRestraurantCard = withPromotedLabel(RestraurantCard);
   useEffect(() => {
     fetchData();
   }, []);
@@ -16,6 +21,7 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.65200&lng=77.16630&is-seo-homepage-enabled=true&page_t"
     );
     console.log("response=", res);
+
     const result = await res.json();
     //console.log(data.cards[4].card.card.gridElements.restraurants);
     console.log(
@@ -68,6 +74,7 @@ const Body = () => {
             Search
           </button>
         </div>
+
         <div className="p-4 m-4">
           <button
             className="px-4 py-2 m-4 bg-gray-100 rounded-lg"
@@ -80,7 +87,16 @@ const Body = () => {
             Top Rated Restraurants
           </button>
         </div>
+        <div className="m-4 p-4 flex items-center">
+          <label> UserName :</label> &nbsp;
+          <input
+            className="border border-solid border-black p-2"
+            onChange={(e) => setUserName(e.target.value)}
+            value={loggedInUser}
+          />
+        </div>
       </div>
+
       <div className="flex flex-wrap">
         {/* <RestraurantCard
             resName="Pizza Doords"
@@ -103,6 +119,15 @@ const Body = () => {
             {" "}
             <RestraurantCard resData={restraurant} />
           </Link>
+          // <Link
+          //   to={`/restraurants/${restraurant.info.id}`}
+          //   key={restraurant.info.id}
+          // >
+          //   {" "}
+
+          //   {/*High Order Component  example*/}
+          //   <PromotedRestraurantCard resData={restraurant} />
+          // </Link>
         ))}
       </div>
     </div>

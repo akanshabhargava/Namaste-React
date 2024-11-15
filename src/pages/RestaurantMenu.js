@@ -3,11 +3,12 @@ import Shimmer from "../components/Shimmer";
 import { useParams } from "react-router-dom";
 import { MENU_API } from "../utils/constants";
 import useRestraurantMenu from "../utils/useRestraurantMenu";
+import RestraurantCategory from "../components/RestraurantCategory";
 const RestaurantMenu = () => {
   //const [resInfo, setResInfo] = useState([]);
   const { resId } = useParams();
   const resInfo = useRestraurantMenu(resId);
-
+  const [showIndex, setShowIndex] = useState(null);
   // useEffect(() => {
   //   fetchMenu();
   // }, []);
@@ -20,19 +21,43 @@ const RestaurantMenu = () => {
   //   console.log(menu.data.cards);
   //   setResInfo(menu.data.cards);
   // };
-  if (resInfo.length === 0) {
+  if (resInfo === null) {
     return <Shimmer />;
   }
-  const { name, cuisines, costForTwoMessage } = resInfo[2]?.card?.card?.info;
+  const { name, cuisines, costForTwoMessage } =
+    resInfo?.cards[2]?.card?.card?.info;
   const { itemCards } =
-    resInfo[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+  console.log(itemCards);
+  const categories =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+  console.log(categories);
   return (
-    <div className="menu">
-      <h1>{name}</h1>
-      <p>
+    <div className="text-center">
+      <h1 className="font-bold my-6 text-2xl">{name}</h1>
+      <p className="font-bold text-lg">
         {cuisines.join(",")}-{costForTwoMessage}
       </p>
-      <ul>
+
+      {/*categories accordion */}
+      {categories.map((category, index) => (
+        // <RestraurantCategory
+        //   data={category?.card?.card}
+        //   key={category?.card?.card.title}
+
+        // />
+        <RestraurantCategory
+          data={category?.card?.card}
+          key={category?.card?.card.title}
+          showItems={index == showIndex ? true : false}
+          setShowIndex={() => setShowIndex(index)}
+        />
+      ))}
+      {/* <ul>
         {itemCards.map((item) => (
           <li key={item?.card?.info?.id}>
             {item?.card?.info?.name} - {" Rs"}{" "}
@@ -40,7 +65,7 @@ const RestaurantMenu = () => {
               item?.card?.info?.price / 100}
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };
