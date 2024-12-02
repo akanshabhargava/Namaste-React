@@ -1,8 +1,15 @@
 import React from "react";
 import { RES_IMG_BASE_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
   console.log(items);
+  const dispatch = useDispatch();
+  
+  const handleItemClick = (item) => {
+    dispatch(addItem(item));
+  };
   return (
     <div>
       {items.map((item) => (
@@ -26,7 +33,10 @@ const ItemList = ({ items }) => {
           </div>
           <div className="w-40 p-4 w-3/12">
             <div className="absolute">
-              <button className=" p-2 mx-4 text-white bg-black rounded-lg shadow-lg">
+              <button
+                className=" p-2 mx-4 text-white bg-black rounded-lg shadow-lg"
+                onClick={() => handleItemClick(item)}
+              >
                 Add +
               </button>
             </div>
