@@ -1,0 +1,94 @@
+{
+    "info": {
+        "id": "831065",
+        "name": "Chinese Wok",
+        "cloudinaryImageId": "f996b31033fd07603bfb28cb4e526683",
+        "locality": "Chandni Chowk",
+        "areaName": "Omaxe mall",
+        "costForTwo": "₹250 for two",
+        "cuisines": [
+            "Chinese",
+            "Asian",
+            "Tibetan",
+            "Desserts"
+        ],
+        "avgRating": 4.1,
+        "parentId": "61955",
+        "avgRatingString": "4.1",
+        "totalRatingsString": "225",
+        "sla": {
+            "deliveryTime": 83,
+            "lastMileTravel": 8.5,
+            "serviceability": "SERVICEABLE",
+            "slaString": "80-85 mins",
+            "lastMileTravelString": "8.5 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2024-12-17 23:00:00",
+            "opened": true
+        },
+        "badges": {
+            "imageBadges": [
+                {
+                    "imageId": "Green%20Dot%20Awards/Best%20In%20Veg%20Noodles.png",
+                    "description": "Delivery!"
+                }
+            ]
+        },
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "Delivery!",
+                                "imageId": "Green%20Dot%20Awards/Best%20In%20Veg%20Noodles.png"
+                            }
+                        }
+                    ]
+                },
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "ITEMS",
+            "subHeader": "AT ₹149"
+        },
+        "orderabilityCommunication": {
+            "title": {},
+            "subTitle": {},
+            "message": {},
+            "customIcon": {}
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "--"
+            }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-be175d80-d52d-4cfa-b593-d76fad94c1a0"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/city/delhi/chinese-wok-chandni-chowk-omaxe-mall-rest831065",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+    },
+    "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}

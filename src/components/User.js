@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const User = ({ name }) => {
   const [count, setCount] = useState(0);
   const [count2, setCount2] = useState(0);
+  console.log("name");
   useEffect(() => {
     console.log("hi");
     return () => {

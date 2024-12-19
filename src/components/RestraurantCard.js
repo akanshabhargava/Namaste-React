@@ -4,10 +4,12 @@ const RestraurantCard = (props) => {
   //const { resName, cuisine } = props;
   const { resData } = props;
   const { name, cuisines, avgRating, costForTwo, sla } = resData?.info;
+  //console.log(resData);
   return (
     <div
       className="m-4 p-4 w-[250px] rounded-lg bg-gray-50 hover:bg-gray-200"
       style={{ backgroundColor: "#f0f0f0" }}
+      data-testid="resCard"
     >
       <img
         alt="res-logo"
@@ -25,7 +27,7 @@ const RestraurantCard = (props) => {
 };
 
 /* High Order Component */
-export const withPromotedLabel = () => {
+export const withPromotedLabel = (RestraurantCard) => {
   return (props) => {
     return (
       <div>

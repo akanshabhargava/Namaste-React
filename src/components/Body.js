@@ -9,7 +9,8 @@ const Body = () => {
   const [listOfRestraurants, setListOfRestraurants] = useState([]);
   const [filteredRestraurants, setFilteredRestraurants] = useState([]);
   const [searchText, setSearchText] = useState("");
-  console.log("List of Restraurants", listOfRestraurants);
+  //console.log("List of Restraurants", listOfRestraurants);
+
   const { loggedInUser, setUserName } = useContext(UserContext);
   /*** high order component  */
   const PromotedRestraurantCard = withPromotedLabel(RestraurantCard);
@@ -20,7 +21,7 @@ const Body = () => {
     const res = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.65200&lng=77.16630&is-seo-homepage-enabled=true&page_t"
     );
-    console.log("response=", res);
+    //console.log("response=", res);
 
     const result = await res.json();
     //console.log(data.cards[4].card.card.gridElements.restraurants);
@@ -58,8 +59,9 @@ const Body = () => {
           <input
             type="text"
             className="border border-solid border-black"
-            value={searchText}
+            // value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
+            data-testid="searchInput"
           />
           <button
             className="px-4 py-2 m-4 bg-green-100 rounded-lg"
@@ -79,9 +81,9 @@ const Body = () => {
           <button
             className="px-4 py-2 m-4 bg-gray-100 rounded-lg"
             onClick={() => {
-              setListOfRestraurants((prevList) => {
-                return prevList.filter((list) => list.info.avgRating > 4.2);
-              });
+              setFilteredRestraurants(
+                listOfRestraurants.filter((list) => list.info.avgRating > 4.2)
+              );
             }}
           >
             Top Rated Restraurants

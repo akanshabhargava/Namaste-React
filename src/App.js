@@ -11,10 +11,12 @@ import UserContext from "./utils/UserContext.js";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore.js";
 import Cart from "./pages/Cart.js";
+import User from "./components/User.js";
 //import Grocery from "./pages/Grocery";
 const Grocery = lazy(() => import("./pages/Grocery"));
 const About = lazy(() => import("./pages/About"));
 const AppLayout = () => {
+  console.log("appLayout");
   const [userName, setUserName] = useState();
   useEffect(() => {
     //APi Call with username na password
@@ -33,6 +35,7 @@ const AppLayout = () => {
           <Outlet />
         </div>
       </UserContext.Provider>
+      {/* <User name="akansha" /> */}
     </Provider>
   );
 };
